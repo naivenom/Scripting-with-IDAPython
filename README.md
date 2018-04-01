@@ -1,2 +1,2 @@
 # Scripting-with-IDAPython
-Solutions of Cracking with OllyDBG and Reversing with IDA Pro of Ricardo Narvaja
+You can follow this course in: http://ricardonarvaja.info/WEB/INTRODUCCION%20AL%20REVERSING%20CON%20IDA%20PRO%20DESDE%20CERO/
