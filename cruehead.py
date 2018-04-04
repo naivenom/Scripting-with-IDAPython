@@ -169,10 +169,4 @@ if __name__ == '__main__':
 	#recon()
 	#discover()
 	help()
-	'''self.ea = here()
-											start = idc.GetFunctionAttr(self.ea, FUNCATTR_START)
-											end_ = idc.GetFunctionAttr(self.ea, FUNCATTR_END)
-											dis_addr = start
-											while dis_addr <= end_:
-												print hex(dis_addr), idc.GetDisasm(dis_addr)
-												dis_addr = idc.NextHead(dis_addr, end_)'''
+	
