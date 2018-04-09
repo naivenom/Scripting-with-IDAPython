@@ -1,4 +1,4 @@
-# Scripting-with-IDAPython
+# Scripting with IDAPython
 | Script Solution  | Unit| Video |
 | ----- | ------ | ------ | 
 | test_reverser.py | Unit 12: Reversing con IDA | https://www.youtube.com/watch?v=jbWSgIv-9LA (0x01)
