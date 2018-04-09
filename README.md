@@ -8,5 +8,6 @@ Run Scripts in IDA: File>Script file...</br>
 You can follow this course in: http://ricardonarvaja.info/WEB/
 </br>
 Telegram group:
+</br>https://t.me/ScriptingIdapython
 </br>https://t.me/crackslatinos
 </br>https://t.me/Fwhibbit
