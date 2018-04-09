@@ -86,12 +86,6 @@ class discover():
 	def __init__(self):
 		self.ea = BeginEA()
 
-	def Dbg(self,addr):
-		idc.RunTo(self.ea)
-		idc.AddBpt(addr) #breakpoint	
-		idc.GetDebuggerEvent(WFNE_SUSP,-1)
-		idc.RunTo(addr)
-
 	def staticString(self,string):
 		self.ea = MinEA()
 		end = MaxEA()
@@ -236,13 +230,64 @@ class discover():
 								except IndexError:
 									pass
 								
-										
-										
-										
+	
 
+class pwn():
+	def __init__(self):
+		self.ea = BeginEA()
+
+	def Dbg(self,addr):
+		idc.RunTo(self.ea)
+		idc.AddBpt(addr) #breakpoint	
+		idc.GetDebuggerEvent(WFNE_SUSP,-1)
+		idc.RunTo(addr)
+
+	def xor(self,addr): #resultado iterado del bucle dando como resultado el valor de EBX restandole (sub) 30h
+		GetDebuggerEvent(WFNE_SUSP, -1)    
+		print("Value: ")
+		len_ = idc.GetRegValue('ESI')
+		print(hex(len_))
+		print(type(len_))
+		print "%x" % len_ , GetDisasm(len_).split()
+		password = []
+		for x in GetDisasm(len_).split():
+			if len(x) == 4:
+				password.append(x)
+		print(password)
+		print(len(password))
+		for i in range(0,int(len(password))): #loop to get byte to byte sum
+			ebx_ = idc.GetRegValue('EBX')
+			print(ebx_)
+			idc.RunTo(self.ea)
+			idc.GetDebuggerEvent(WFNE_SUSP,-1)
+		idaapi.step_into()
+		GetDebuggerEvent(WFNE_SUSP, -1)
+		idc.RunTo(0x004013FD) #consiguiendo el valor de EBX en la direccion de retorno de la funcion
+		GetDebuggerEvent(WFNE_SUSP, -1)    
+		print("Value: ")
+		value = idc.GetRegValue('EBX')
+		print(value)
+		print(hex(value))
 		
+		'''
+		XOR
+			0x5e6774a: 0000 0000 0101 1110 0110 0111 0111 0100 1010
+			0x1234:								0001 0010 0011 0100
+											 	0110 0101 0111 1110
+											 	0x5e6657e
+		'''
+	
+	def keygen(self,addr):
+		GetDebuggerEvent(WFNE_SUSP, -1)    
+		print("Value of EAX: ")
+		value_ = idc.GetRegValue('EAX')
+		print(hex(value_))
+		print(type(value_))
+		correct = hex(value_ ^ 0x1234)
+		print "Your password for this user is:", int(correct[:-1], 0)
 
 if __name__ == '__main__':
 	#recon()
 	#discover()
+	#pwn()
 	help()
