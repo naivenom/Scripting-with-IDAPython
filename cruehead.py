@@ -11,7 +11,6 @@ def help():
 				.FindString(string)=> Find a particulary string and disasm it
 		discover()
 			Methods:
-				Inherit recon class methods
 				.Dbg(addr) ==> 	Run Debugger and set breakpoint a specific address
 				.staticString(string)==> Start enumeration discover through string point
 				.staticJump(addr,string) ==> Continue enumeration discover throught jump instruction point
@@ -232,7 +231,7 @@ class discover():
 								
 	
 
-class pwn():
+class solution():
 	def __init__(self):
 		self.ea = BeginEA()
 
@@ -289,5 +288,5 @@ class pwn():
 if __name__ == '__main__':
 	#recon()
 	#discover()
-	#pwn()
+	#solution()
 	help()
